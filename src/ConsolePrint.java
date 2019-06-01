@@ -10,7 +10,7 @@ public class ConsolePrint extends Printer {
     private List<Integer> columnSizes;
     private List<List<String>> localTable;
 
-    public ConsolePok(List<List<String>> inputTable) {
+    public ConsolePrint(List<List<String>> inputTable) {
         super();
         localTable = inputTable;
         rowCounter = inputTable.size();
