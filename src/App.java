@@ -1,20 +1,28 @@
+import model.Model;
+
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+
 public class App {
 
     public static void main(String[] args) {
 
-        List<Path> xlsFilePath;
-        List<List<String>> rawData;
+        List<Path> xlsFilePaths;
+        List<List<String>> rawData; //surowe dane do tworzenia raportów
+        Model model = new Model();
+        Reader reader = new Reader();
+        //Menu menu = new Menu();
 
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
+
+        Menu.menuRaport();
 
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath

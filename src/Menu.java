@@ -66,7 +66,7 @@ public class Menu {
         this.path = new File(pathString);
     }
 
-    public void menuRaport() {
+    public static void menuRaport() {
         System.out.println("Wybierz rodzaj raportu:");
         System.out.println("1. Raport roczny wg. wszystkich pracowników");
         System.out.println("2. Raport roczny wg. projektów");
