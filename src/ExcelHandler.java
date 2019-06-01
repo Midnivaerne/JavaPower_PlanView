@@ -18,6 +18,8 @@ public class ExcelHandler {
     private Cell cell;
     private XSSFWorkbook workbook;
 
+    //aaa
+
     //path to file
     //ktos podaje nowe pliki
     //in: parsowanie pojedynczego excella
