@@ -10,12 +10,12 @@ public class ConsolePrint extends Printer {
     private List<Integer> columnSizes;
     private List<List<String>> localTable;
 
-    public ConsolePok(List<List<String>> inputTable) {
-        super();
-        localTable = inputTable;
-        rowCounter = inputTable.size();
-        columntCounter = inputTable;
-    }
+//    public ConsolePok(List<List<String>> inputTable) {
+//        super();
+//        localTable = inputTable;
+//        rowCounter = inputTable.size();
+//        columntCounter = inputTable;
+//    }
 
     private void getMaximumColumnSize() {
         int maxValue = 0;
