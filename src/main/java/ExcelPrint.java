@@ -1,4 +1,4 @@
-public class ExcelPrint extends Printer {
+public class ExcelPrint implements Printer {
 
     @Override
     public void print(){};

@@ -24,6 +24,7 @@ public class App {
 //        Reader reader = new Reader();
         Menu menu = new Menu();
 
+        report1Test();
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
@@ -47,11 +48,12 @@ public class App {
         //
     }
 
-    public void report1Test() {
+    public static void report1Test() {
         Report1 r1 = new Report1("2000");
         Model m = new Model();
         Person p1 = new Person();
         Person p2 = new Person();
+        Person p3 = new Person();
         Project pr1 = new Project();
         Task t1 = new Task();
         Task t2 = new Task();
@@ -65,6 +67,8 @@ public class App {
         p1.setSurname("Miałczyński");
         p2.setName("Jerzy");
         p2.setSurname("Zwierz");
+        p3.setName("Jeż");
+        p3.setSurname("Jerzy");
         t1.setHoursCount(20);
         t2.setHoursCount(100);
         tlist.add(t1);
@@ -73,8 +77,10 @@ public class App {
         prlist.add(pr1);
         p1.setProjectList(prlist);
         p2.setProjectList(prlist);
-        plist.add(p1);
+        p3.setProjectList(prlist);
         plist.add(p2);
+        plist.add(p1);
+        plist.add(p3);
         m.setPersonList(plist);
 
 
@@ -84,9 +90,9 @@ public class App {
 
         List<List<String>> outlist = r1.getOutputList();
 
-        System.out.println(outlist.get(0).get(0) + " - " + outlist.get(1).get(0));
-        System.out.println(outlist.get(0).get(1) + " - " + outlist.get(1).get(1));
-
+        Printer printer;
+        printer = new ConsolePrint(outlist);
+        printer.print();
     }
 
 
