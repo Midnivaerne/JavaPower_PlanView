@@ -6,10 +6,10 @@ public class Menu {
     private static Scanner scanner = new Scanner(System.in);
 
     private File path;
-    private String imieNazwisko;
-    private int rodzajRaportu;
-    private int rok;
-    private String rodzajWyjscia;
+    private String name;
+    private int reportType;
+    private int year;
+    private String outputType;
 
     public Menu() {}
 
@@ -21,109 +21,123 @@ public class Menu {
         this.path = path;
     }
 
-    public String getImieNazwisko() {
-        return imieNazwisko;
+    public String getName() {
+        return name;
     }
 
-    public void setImieNazwisko(String imieNazwisko) {
-        this.imieNazwisko = imieNazwisko;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getRodzajRaportu() {
-        return rodzajRaportu;
+    public int getReportType() {
+        return reportType;
     }
 
-    public void setRodzajRaportu(int rodzajRaportu) {
-        this.rodzajRaportu = rodzajRaportu;
+    public void setReportType(int reportType) {
+        this.reportType = reportType;
     }
 
-    public int getRok() {
-        return rok;
+    public int getYear() {
+        return year;
     }
 
-    public void setRok(int rok) {
-        this.rok = rok;
+    public void setYear(int rok) {
+        this.year = rok;
     }
 
-    public String getRodzajWyjscia() {
-        return rodzajWyjscia;
+    public String getOutputType() {
+        return outputType;
     }
 
-    public void setRodzajWyjscia(String rodzajWyjscia) {
-        this.rodzajWyjscia = rodzajWyjscia;
+    public void setOutputType(String outputType) {
+        this.outputType = outputType;
     }
+    
 
-    public static void main(String[] args) {
-    }
+    public void mainMenu() {
+        //String exit;
 
-    public void menuGlowne() {
         System.out.println("Witaj w systemie generowania raportów");
+        System.out.println();
         System.out.println("Podaj ścieżkę do danych wejściowych.");
-
-        String path = "";
 
         String pathString = scanner.next();
         this.path = new File(pathString);
-    }
 
-    public void menuRaport() {
         System.out.println("Wybierz rodzaj raportu:");
         System.out.println("1. Raport roczny wg. wszystkich pracowników");
         System.out.println("2. Raport roczny wg. projektów");
         System.out.println("3. Raport roczny pracownika");
         System.out.println("4. Raport roczny pracownika procentowy wg. projektu");
         System.out.println("5. Raport roczny top 10 zadań");
-        System.out.println("Wpisz m aby wrócić do menu głównego");
-        System.out.println("Wpisz q aby zakonczyc");
 
-        String wybor = scanner.next();
-        if(wybor.equalsIgnoreCase("m")) {
-            menuGlowne();
-        } else if (wybor.equalsIgnoreCase("q")) {
-            // wyjdz z programu
-        } else {
-            int rodzajRaportu = Integer.parseInt(wybor);
-        }
-    }
+        this.reportType = scanner.nextInt();
 
-    public void menuDane(int rodzajRaportu) {
-        int rok;
-        String imiePracownika;
-        String wybor;
-        switch (rodzajRaportu) {
+        //System.out.println("Wpisz q aby zakonczyc");
+        //exit = scanner.next();
+
+        switch (reportType) {
             case 1:
                 System.out.println("Podaj rok");
-                wybor = scanner.next();
-                rok = Integer.parseInt(wybor);
-
+                this.year = Integer.parseInt(scanner.next());
                 break;
             case 2:
                 System.out.println("Raport niedostepny");
-                // wpisz q aby wrocic do menu glownego
+                //System.out.println("Podaj rok");
+                //this.year = Integer.parseInt(scanner.next());
+
+                //System.out.println("Wpisz q aby zakonczyc");
+                //exit = scanner.next();
                 break;
             case 3:
-                System.out.println("Podaj imie i nazwisko pracownika");
-                imiePracownika = scanner.next();
+                System.out.println("Podaj imie pracownika");
+                String firstName = scanner.next();
+
+                System.out.println("Podaj nazwisko pracownika");
+                String lastName = scanner.next();
+
+                this.name = lastName+"_"+firstName;
 
                 System.out.println("Podaj rok");
-                rok = scanner.nextInt();
+                this.year = scanner.nextInt();
                 break;
             case 4:
                 System.out.println("Raport niedostępny");
-//                System.out.println("Podaj imie i nazwisko pracownika");
-//                imiePracownika = scanner.next();
+
+//                System.out.println("Podaj imie pracownika");
+//                String firstName = scanner.next();
+//
+//                System.out.println("Podaj nazwisko pracownika");
+//                String lastName = scanner.next();
+//
+//                this.name = lastName+"_"+firstName;
 //
 //                System.out.println("Podaj rok");
+//                this.year = scanner.nextInt();
+
                 break;
             case 5:
                 System.out.println("Raport niedostępny");
+
+                // jakies podawanie słow  kluczowych itp
+                // trzeba tez uzupełnić pola klasy!
+
                 break;
             default:
+                System.out.println("Niema takiego rodzaju");
+                break;
         }
+
+        System.out.println("Podaj rodzaj wyjścia:");
+        System.out.println("K - Konsola");
+        System.out.println("E - Excel");
+        System.out.println("P - Pdf");
+        System.out.println("W - Excel z wykresem");
+
+        this.outputType = scanner.next();
+
+
     }
 
-    public static void menuWyjscie() {
-
-    }
 
 }
