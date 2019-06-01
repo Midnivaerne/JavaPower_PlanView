@@ -1,4 +1,5 @@
-public class ExcelPrint {
+public class ExcelPrint extends Printer {
 
-    //@Override
+    @Override
+    public void print(){};
 }
