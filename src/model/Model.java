@@ -1,9 +1,16 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Model {
-
+	
+	private List<Person> personList;
+	
+	public Model(){
+		personList = new LinkedList<>();
+	}
+	
     public List<Person> getPersonList() {
         return personList;
     }
@@ -12,5 +19,8 @@ public class Model {
         this.personList = personList;
     }
 
-    private List<Person> personList;
+    public void addPersonToModel(List<Person> person){
+    	this.personList.add((Person) person);
+    }
+    
 }

@@ -14,7 +14,7 @@ public class ConsolePrint extends Printer {
         super();
         localTable = inputTable;
         rowCounter = inputTable.size();
-        columntCounter = inputTable;
+        List<List<String>> columntCounter = inputTable;
     }
 
     private void getMaximumColumnSize() {

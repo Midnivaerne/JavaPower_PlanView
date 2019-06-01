@@ -5,6 +5,11 @@ public class Task {
     private String taskName;
     private int hoursCount;
 
+    public Task(String taskName, int hoursCount){
+    	this.taskName = taskName;
+    	this.hoursCount = hoursCount;
+    }
+    
     public String getTaskName() {
         return taskName;
     }

@@ -22,15 +22,14 @@ public class App {
         List<List<String>> rawData; //surowe dane do tworzenia raportów
         Model model = new Model();
         Reader reader = new Reader();
-        //Menu menu = new Menu();
+        Menu menu = new Menu();
 
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
-
-        Menu.menuRaport();
-
+        menu.mainMenuPanel();
+        
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
          */
@@ -53,8 +52,8 @@ public class App {
         Person p1 = new Person();
         Person p2 = new Person();
         Project pr1 = new Project();
-        Task t1 = new Task();
-        Task t2 = new Task();
+        //Task t1 = new Task();
+        //Task t2 = new Task();
 
 
         ArrayList<Person> plist = new ArrayList<Person>();
@@ -65,10 +64,10 @@ public class App {
         p1.setSurname("Miałczyński");
         p2.setName("Jerzy");
         p2.setSurname("Zwierz");
-        t1.setHoursCount(20);
-        t2.setHoursCount(100);
-        tlist.add(t1);
-        tlist.add(t2);
+        //t1.setHoursCount(20);
+        //t2.setHoursCount(100);
+        //tlist.add(t1);
+        //tlist.add(t2);
         pr1.setTaskList(tlist);
         prlist.add(pr1);
         p1.setProjectList(prlist);

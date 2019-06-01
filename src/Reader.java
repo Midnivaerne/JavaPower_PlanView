@@ -32,6 +32,5 @@ public class Reader {
         return ourInstance;
     }
 
-    private Reader() {
-    }
+    Reader() {};
 }

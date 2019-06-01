@@ -70,3 +70,4 @@ fabric.properties
 
 # Java CLass files
 .class
+/bin/
