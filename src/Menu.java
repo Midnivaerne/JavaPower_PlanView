@@ -52,7 +52,7 @@ public class Menu {
     public void setOutputType(String outputType) {
         this.outputType = outputType;
     }
-    
+
 
     public void mainMenu() {
         //String exit;
