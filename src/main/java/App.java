@@ -22,7 +22,7 @@ public class App {
         List<List<String>> rawData; //surowe dane do tworzenia raportów
         Model model = new Model();
 //        Reader reader = new Reader();
-        //Menu menu = new Menu();
+        Menu menu = new Menu();
 
         report1Test();
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
@@ -30,7 +30,7 @@ public class App {
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        //Menu.menuRaport();
+        menu.mainMenuPanel();
 
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
