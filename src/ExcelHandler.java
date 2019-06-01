@@ -30,6 +30,9 @@ public class ExcelHandler {
 
     //methods
     //read form file
+    public void read(String filename) {
+
+    }
     //write to file
     public void write(String filename, Report report) {
         // zaladowac (sparsowac) excele do modelu
