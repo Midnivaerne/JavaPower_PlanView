@@ -1,1 +1,0 @@
-Nie czytaj tego napisu
