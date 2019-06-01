@@ -1,4 +1,4 @@
-public class ExcellHandler {
+public class ExcelHandler {
 
     //fields
     //path to file
@@ -8,4 +8,7 @@ public class ExcellHandler {
     //methods
     //read form file
     //write to file
+    public void write(String filename, Report report) {
+
+    }
 }
