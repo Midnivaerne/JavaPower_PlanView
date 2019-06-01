@@ -1,6 +1,8 @@
+package model;
+
 import java.util.List;
 
-public class Projekt {
+public class Project {
 
     private List<Task> taskList;
 
