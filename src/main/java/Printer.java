@@ -1,4 +1,5 @@
-public class Printer {
+interface Printer {
+    public void print();
 
-    public void print(){};
+    ;
 }
