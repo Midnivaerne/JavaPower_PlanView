@@ -16,7 +16,8 @@ public class ExcelHandler {
     private Sheet sheet;
     private Row row;
     private Cell cell;
-    private XSSFWorkbook workbook;
+
+    //aaa
 
     //path to file
     //ktos podaje nowe pliki
@@ -25,10 +26,13 @@ public class ExcelHandler {
     //out: dopisanie do modelu
 
     //table to write
-
+    // HELLO WORLD 123
 
     //methods
     //read form file
+    public void read(String filename) {
+
+    }
     //write to file
     public void write(String filename, Report report) {
         // zaladowac (sparsowac) excele do modelu
