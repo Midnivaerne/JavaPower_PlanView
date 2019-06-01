@@ -3,8 +3,7 @@ import java.util.List;
 public class Report3 extends Report {
 
     @Override
-    public List<List<String>> generate(){
-        return null;
+    public void generate(){
     }
 
 

@@ -14,11 +14,11 @@ public class Report1 extends Report {
     };
 
     @Override
-    public List<List<String>> generate() {
+    public void generate() {
 
         List<String> persons = new ArrayList<String>();
         List<String> hours = new ArrayList<String>();
-        List<List<String>> out = new ArrayList<>();
+
 
 
         for (Person person : this.getDataModel().getPersonList()) {
@@ -31,11 +31,9 @@ public class Report1 extends Report {
             }
             hours.add(String.valueOf(currentPersonHours));
         }
+        this.outputList.add(persons);
+        this.outputList.add(hours);
 
-        out.add(persons);
-        out.add(hours);
-
-        return out;
     }
 
 
