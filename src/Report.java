@@ -3,9 +3,9 @@ import model.Model;
 public abstract class Report {
 
 
-    public abstract void Generate();
+    public abstract void generate();
 
-  //  public Model Load(String filePath){
+  //  public Model load(String filePath){
   //      return;
   //  };
 }
