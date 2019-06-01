@@ -1,5 +1,5 @@
 import model.Model;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+//import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ public class Reader {
         if (!file.exists())
             throw new FileNotFoundException();
 
-        XSSFSheet workbook;
+        //XSSFSheet workbook;
         // filesystem crawler,
         // rok
 
