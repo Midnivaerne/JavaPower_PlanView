@@ -7,6 +7,7 @@ public class Menu {
 
     private File path;
     private String name;
+    private String surnameName;
     private int reportType;
     private int year;
     private String outputType;
@@ -147,7 +148,8 @@ public class Menu {
                 System.out.println("Podaj nazwisko pracownika ");
                 String lastName = scanner.nextLine();
 
-                this.name = lastName + "_" + firstName;
+                this.name = firstName;
+                this.surnameName = lastName;
 
                 System.out.println("Podaj rok: ");
 
@@ -231,5 +233,12 @@ public class Menu {
     }
 
 
+    public String getSurnameName() {
+        return surnameName;
+    }
+
+    public void setSurnameName(String surnameName) {
+        this.surnameName = surnameName;
+    }
 }
 
