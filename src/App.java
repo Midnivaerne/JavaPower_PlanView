@@ -19,6 +19,8 @@ public class App {
         List<Path> xlsFilePath;
         List<List<String>> rawData;
 
+        report1Test();
+
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
@@ -40,7 +42,7 @@ public class App {
         //
     }
 
-    public void report1Test() {
+    public static void report1Test() {
         Report1 r1 = new Report1("2000");
         Model m = new Model();
         Person p1 = new Person();
