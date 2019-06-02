@@ -1,9 +1,12 @@
 package model;
 
+import java.util.Date;
+
 public class Task {
 
     private String taskName;
-    private int hoursCount;
+    private double hoursCount;
+    private Date date;
 
     public String getTaskName() {
         return taskName;
@@ -13,11 +16,25 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public int getHoursCount() {
+    public double getHoursCount() {
         return hoursCount;
     }
 
-    public void setHoursCount(int hoursCount) {
+    public void setHoursCount(double hoursCount) {
+        this.hoursCount = hoursCount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Task(Date date, String taskName, double hoursCount) {
+        this.date = date;
+        this.taskName = taskName;
         this.hoursCount = hoursCount;
     }
 }

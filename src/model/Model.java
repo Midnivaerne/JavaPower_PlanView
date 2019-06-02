@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
@@ -13,4 +14,8 @@ public class Model {
     }
 
     private List<Person> personList;
+
+    public Model() {
+        personList = new ArrayList<>();
+    }
 }
