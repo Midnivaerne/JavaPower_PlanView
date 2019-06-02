@@ -266,17 +266,17 @@ public class Menu {
     }
 
     private boolean checkPersonExistence (String name, String surname){
-        int occurenceCounter = 0;
-        for (File file: App.getListOfFiles()) {
-            if(file.getName().toLowerCase().contains(name.toLowerCase()) && file.getName().toLowerCase().contains(surname.toLowerCase())) {
-                occurenceCounter++;
-            }
-        }
-        if(occurenceCounter == 0){
-            return false;
-        }else{
+//        int occurenceCounter = 0;
+//        for (File file: App.getListOfFiles()) {
+//            if(file.getName().toLowerCase().contains(name.toLowerCase()) && file.getName().toLowerCase().contains(surname.toLowerCase())) {
+//                occurenceCounter++;
+//            }
+//        }
+//        if(occurenceCounter == 0){
             return true;
-        }
+//        }else{
+//            return true;
+//        }
     }
 }
 

@@ -64,15 +64,15 @@ public class ConsolePrint implements Printer {
                 }
             }
             columnSizes.add(maxValue);
-            System.out.println(columnSizes.size());
-            for(int i = 0; i < columnSizes.size(); i++) {
-                if(columnSizes.get(i) < report.getColumnHeader().get(i).length()) {
-                    columnSizes.add(i, report.getColumnHeader().get(i).length());
-                }
-            }
-            maxValue = 0;
-            column++;
         }
+//        System.out.println(columnSizes.size());
+//        for(int i = 0; i < columnSizes.size(); i++) {
+//            if(columnSizes.get(i) < report.getColumnHeader().get(i).length()) {
+//                columnSizes.add(i, report.getColumnHeader().get(i).length());
+//            }
+//        }
+        maxValue = 0;
+        column++;
     }
 
     private void printSignMultipleTimes(int lineLength, String sign){
