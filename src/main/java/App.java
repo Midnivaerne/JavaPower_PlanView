@@ -30,22 +30,25 @@ public class App {
         Menu menu = new Menu();
         Reader reader = new Reader();
         Model model = new Model();
-
-
-        /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
-                obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
-                powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
-        */
+        Report report = null;
 
         while(true){
-
             menu.mainMenuPanel();
+
+//            for(int i = 1; i<5; i++) {
+//                menu.setName("Tomasz");
+//                menu.setSurnameName("Kot");
+//                menu.setYear(2012);
+//                menu.setOutputType("K");
+//                menu.setPath(new File("C:\\Stuff\\MWO pracownia projektowa\\Power_PlanView_1\\res\\reporter-dane"));
+//                menu.setReportType(i);
+//
+//            }
 
             reader.getExcels(new File(String.valueOf(menu.getPath())), String.valueOf(menu.getYear()));
 
-        listOfFiles = reader.getResult();
+            listOfFiles = reader.getResult();
 
-            Report report = null;
             switch (menu.getReportType()){
                 case(1):
                     report = new Report1(Integer.toString(menu.getYear()));
@@ -102,6 +105,7 @@ public class App {
 //                printer = new ExcelPrintChart(outlist);
 //                break;
             }
+            report = null;
         }
 
     }

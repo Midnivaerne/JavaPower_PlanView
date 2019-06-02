@@ -7,26 +7,33 @@ public class ConsolePrint implements Printer {
     private int columnCounter;
     private int rowCounter;
     private List<Integer> columnSizes = new LinkedList<>();
+    private List<Integer> tmpColumnSizes = new LinkedList<>();
     private List<List<String>> localTable;
     private List<String> singleRow = new ArrayList<>();
     private Report report;
 
     @Override
     public void print(){
+        int counter = 0;
         getMaximumColumnSize();
 //        System.out.println("Max column size" + columnSizes);
         for (int singleColumnLength : columnSizes) {
-            printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
+            printSignMultipleTimes( (singleColumnLength), "-");
         }
+        printSignMultipleTimes((columnCounter*3) +1, "-");
+
         System.out.println("");
         for(String singleCell : report.getColumnHeader()){
             System.out.print("| " + singleCell + " ");
+            printSignMultipleTimes(columnSizes.get(counter) - singleCell.length(), " ");
+            counter++;
         }
-        System.out.println("");
+        System.out.println("|");
 
         for (int singleColumnLength : columnSizes) {
-            printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
+            printSignMultipleTimes( (singleColumnLength), "-");
         }
+        printSignMultipleTimes((columnCounter*3) +1, "-");
 
         System.out.println("");
         rowCounter = localTable.get(0).size();
@@ -40,9 +47,11 @@ public class ConsolePrint implements Printer {
         }
 
         for (int singleColumnLength : columnSizes) {
-            printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
+            printSignMultipleTimes( (singleColumnLength), "-");
         }
+        printSignMultipleTimes((columnCounter*3) +1, "-");
 
+        System.out.println("\n\n\n");
     };
 
     public ConsolePrint(List<List<String>> inputTable, Report argReport) {
@@ -50,7 +59,6 @@ public class ConsolePrint implements Printer {
         localTable = inputTable;
         columnCounter = inputTable.size();
         report = argReport;
-//        columntCounter = inputTable;
     }
 
     private void getMaximumColumnSize() {
@@ -65,12 +73,17 @@ public class ConsolePrint implements Printer {
             }
             columnSizes.add(maxValue);
         }
-//        System.out.println(columnSizes.size());
-//        for(int i = 0; i < columnSizes.size(); i++) {
-//            if(columnSizes.get(i) < report.getColumnHeader().get(i).length()) {
-//                columnSizes.add(i, report.getColumnHeader().get(i).length());
-//            }
-//        }
+
+        for(int singleSize : columnSizes){
+            if(singleSize < report.getColumnHeader().get(counter).length()) {
+                tmpColumnSizes.add(report.getColumnHeader().get(counter).length());
+            } else {
+                tmpColumnSizes.add(singleSize);
+            }
+            counter++;
+        }
+        columnSizes = tmpColumnSizes;
+
         maxValue = 0;
         column++;
     }
