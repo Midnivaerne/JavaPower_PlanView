@@ -134,12 +134,15 @@ public class Menu {
                 }
                 break;
             case 2:
-                System.out.println("!!! Raport niedostepny, wybierz inny !!!");
-                reportTypePanel();
+                System.out.println("Podaj rok");
 
-                //System.out.println("Podaj rok");
-                //this.year = Integer.parseInt(scanner.next());
-
+                try {
+                    this.year = Integer.parseInt(scanner.nextLine());
+                    outputTypePanel();
+                } catch (Exception error) {
+                    System.out.println("!!! Podany rok ma zły format !!!");
+                    dataPanel(type);
+                }
                 break;
             case 3:
                 System.out.println("Podaj imie pracownika: ");
@@ -166,17 +169,35 @@ public class Menu {
                 System.out.println("!!! Raport niedostępny, wybierz inny !!!");
                 reportTypePanel();
 
-//              System.out.println("Podaj imie pracownika");
-//              String firstName = scanner.next();
-//
-//              System.out.println("Podaj nazwisko pracownika");
-//              String lastName = scanner.next();
-//
-//              this.name = lastName+"_"+firstName;
-//
-//              System.out.println("Podaj rok");
-//              this.year = scanner.nextInt();
+                System.out.println("Podaj imie pracownika");
+                try {
+                    this.name = scanner.nextLine();
+                    outputTypePanel();
+                } catch (Exception error) {
+                    System.out.println("!!! Podane imię ma zły format !!!");
+                    dataPanel(type);
+                }
 
+                System.out.println("Podaj nazwisko pracownika");
+                try {
+                    this.surnameName = scanner.nextLine();
+                    outputTypePanel();
+                } catch (Exception error) {
+                    System.out.println("!!! Podane nazwisko ma zły format !!!");
+                    dataPanel(type);
+                }
+
+              this.name = name+"_"+surnameName;
+
+                System.out.println("Podaj rok: ");
+
+                try {
+                    this.year = Integer.parseInt(scanner.nextLine());
+                    outputTypePanel();
+                } catch (Exception error) {
+                    System.out.println("!!! Podany rok ma zły format !!!");
+                    dataPanel(type);
+                }
                 break;
             case 5:
                 System.out.println("!!! Raport niedostępny, wybierz inny !!!");

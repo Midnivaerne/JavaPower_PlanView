@@ -29,17 +29,21 @@ public class Report3 extends Report {
 
 
 
+
+
         for (Person person: this.getDataModel().getPersonList()){
-            if((person.getName() == Name) && (person.getSurname() == Surname)){
+            if((person.getName().equals(Name))&&person.getSurname().equals(Surname)){
                 for (Project project: person.getProjectList()){
                     for (Task task: project.getTaskList()){
-                        if(!dictionary.containsKey(task.getDate().getMonth())){
-                            dictionary.put(Integer.valueOf(task.getDate().getMonth()), new TreeMap<String, Double>());
+                        if (dictionary.containsKey(task.getDate().getMonth())) {
+                        } else {
+                            dictionary.put(task.getDate().getMonth(), new TreeMap<String, Double>());
                         }
-                        if (!dictionary.get(Integer.valueOf(task.getDate().getMonth())).containsKey(project.getName())){
-                            dictionary.get(Integer.valueOf((task.getDate().getMonth()))).put(project.getName(),0.0);
+                        if (dictionary.get(task.getDate().getMonth()).containsKey(project.getProjectName())) {
+                        } else {
+                            dictionary.get((task.getDate().getMonth())).put(project.getProjectName(),0.0);
                         }
-                        dictionary.get(Integer.valueOf((task.getDate().getMonth()))).put(project.getName(),dictionary.get(Integer.valueOf((task.getDate().getMonth()))).get(project.getName())+task.getHoursCount());
+                        dictionary.get((task.getDate().getMonth())).put(project.getProjectName(),dictionary.get((task.getDate().getMonth())).get(project.getProjectName())+task.getHoursCount());
                     }
                 }
             }

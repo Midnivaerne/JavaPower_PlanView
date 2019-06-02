@@ -17,9 +17,6 @@ public class Project {
         return projectName;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public List<Task> getTaskList() {
         return taskList;

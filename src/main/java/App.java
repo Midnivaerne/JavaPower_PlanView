@@ -1,4 +1,4 @@
-import jdk.jfr.events.ExceptionThrownEvent;
+
 import model.Model;
 
 import java.io.File;
@@ -32,12 +32,14 @@ public class App {
 
         menu.mainMenuPanel();
 
-        Report1 r1 = new Report1("2000");
+        //Report1 r1 = new Report1("2000");
+        //Report4 r1 = new Report4("Tomasz", "Kot","2012");
+
 
         Reader reader = new Reader();
         Model model = new Model();
 
-        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012\\01")) ){
+        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\Daniel Sosnowski\\Desktop\\JavaPower_PlanView\\JavaPower_PlanView\\res\\reporter-dane\\2012\\01")) ){
             ExcelHandler excelHandler = new ExcelHandler(model);
             excelHandler.read(singleXlsFile );
             r1.setDataModel(model);
