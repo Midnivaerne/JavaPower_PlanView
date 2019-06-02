@@ -6,6 +6,12 @@ import java.io.FileNotFoundException;
 
 public class Reader {
 
+    private static Reader ourInstance = new Reader();
+
+    public static Reader getInstance() {
+        return ourInstance;
+    }
+
     public Model parseData(String filename) throws FileNotFoundException {
         if (filename == null)
             return null;
@@ -24,12 +30,6 @@ public class Reader {
         // excel, pracownicy
         // ExcelHandler ?
         return model;
-    }
-
-    private static Reader ourInstance = new Reader();
-
-    public static Reader getInstance() {
-        return ourInstance;
     }
 
     private Reader() {
