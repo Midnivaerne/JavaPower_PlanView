@@ -16,7 +16,11 @@ public class Project {
         this.taskList = taskList;
     }
 
-    String name;
+    public String getName() {
+        return name;
+    }
+
+    private String name;
 
     public Project(String name) {
         this.name = name;

@@ -1,6 +1,8 @@
 import model.Model;
 
 import java.nio.file.Path;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -21,8 +23,8 @@ public class App {
         List<Path> xlsFilePaths;
         List<List<String>> rawData; //surowe dane do tworzenia raportów
         Model model = new Model();
-        Reader reader = new Reader();
-        //Menu menu = new Menu();
+        Reader reader = Reader.getInstance();
+        Menu menu = new Menu();
 
         report1Test();
 
@@ -31,7 +33,7 @@ public class App {
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        Menu.menuRaport();
+        menu.mainMenuPanel();
 
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
@@ -50,25 +52,20 @@ public class App {
     }
 
     public static void report1Test() {
-        Report1 r1 = new Report1("2000");
+        Report3 r1 = new Report3("Adaś", "Miałczyński","2000");
         Model m = new Model();
-        Person p1 = new Person();
-        Person p2 = new Person();
-        Project pr1 = new Project();
-        Task t1 = new Task();
-        Task t2 = new Task();
+        Person p1 = new Person("Jerzy","Zwierz");
+        Person p2 = new Person("Adaś", "Miałczyński");
+        Project pr1 = new Project("NewProject");
+        Task t1 = new Task(Date.valueOf(LocalDate.now()),"NewTask1",20);
+        Task t2 = new Task(Date.valueOf(LocalDate.now()),"NewTask2",100);
 
 
         ArrayList<Person> plist = new ArrayList<Person>();
         ArrayList<Project> prlist = new ArrayList<Project>();
         ArrayList<Task> tlist = new ArrayList<Task>();
 
-        p1.setName("Adaś");
-        p1.setSurname("Miałczyński");
-        p2.setName("Jerzy");
-        p2.setSurname("Zwierz");
-        t1.setHoursCount(20);
-        t2.setHoursCount(100);
+
         tlist.add(t1);
         tlist.add(t2);
         pr1.setTaskList(tlist);
@@ -84,10 +81,12 @@ public class App {
 
         r1.generate();
 
-        List<List<String>> outlist = r1.getOutputList();
 
-        System.out.println(outlist.get(0).get(0) + " - " + outlist.get(1).get(0));
-        System.out.println(outlist.get(0).get(1) + " - " + outlist.get(1).get(1));
+//        List<List<String>> outlist = r1.getOutputList();
+//        System.out.println(r1.getReportHeader());
+//        System.out.println(r1.getColumnHeader());
+//        System.out.println(outlist.get(0).get(0) + " - " + outlist.get(1).get(0));
+//        System.out.println(outlist.get(0).get(1) + " - " + outlist.get(1).get(1));
 
     }
 
