@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,12 +11,12 @@ public class Project {
     
     public Project(String projectName){
     	this.projectName = projectName;
-    	taskList = new LinkedList<>();
+    	taskList = new ArrayList<Task>();
     }
     
     public Project(){
     	this.projectName = new String();
-    	taskList = new LinkedList<>();
+    	taskList = new ArrayList<Task>();
     }
     
     public List<Task> getTaskList() {
@@ -26,12 +27,13 @@ public class Project {
     	this.projectName = projectName;
     }
     
-    public void setTaskList(List<Task> taskList) {
+    public void setTaskList(ArrayList<Task> taskList) {
         this.taskList = taskList;
     }
     
     public void addTaskToProjectList(Task task){
     	this.taskList.add(task);
     }
+    
 
 }

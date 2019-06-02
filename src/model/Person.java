@@ -1,33 +1,34 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Person {
 
-    private String Name;
-    private String Surname;
+    private String name;
+    private String surname;
     
     private List<Project> projectList;
 
     public Person(String Name, String Surname){
-    	this.Name = Name;
-    	this.Surname = Surname;
-    	projectList = new LinkedList<>();
+    	this.name = Name;
+    	this.surname = Surname;
+    	projectList = new ArrayList<>();
     }
     
     public Person(){
-    	this.Name = new String();
-    	this.Surname = new String();
-    	projectList = new LinkedList<>();
+    	this.name = new String();
+    	this.surname = new String();
+    	projectList = new ArrayList<>();
     }
     
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public List<Project> getProjectList() {
@@ -37,21 +38,22 @@ public class Person {
     public void setProjectList(List<Project> projectList) {
         this.projectList = projectList;
     }
-    
-    public void addProjectListToPersonList(List<Project> taskList){
-    	this.projectList.add((Project) taskList);
-    }
+
+// nie dzia³a do poprawy !!!    
+//    public void addProjectListToPersonList(List<Project> taskList){
+//    	this.projectList.add((Project) taskList);
+//    }
 
     @Override
     public String toString() {
-        return Name + " " + Surname;
+        return name + " " + surname;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 }

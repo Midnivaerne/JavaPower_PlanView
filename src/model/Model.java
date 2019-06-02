@@ -19,8 +19,9 @@ public class Model {
         this.personList = personList;
     }
 
-    public void addPersonToModel(List<Person> person){
-    	this.personList.add((Person) person);
-    }
+// nie dzia³a do poprawy !!!    
+//    public void addPersonToModel(List<Person> person){
+//    	this.personList.add((Person) person);
+//    }
     
 }

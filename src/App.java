@@ -21,14 +21,15 @@ public class App {
         List<Path> xlsFilePaths;
         List<List<String>> rawData; //surowe dane do tworzenia raportów
         Model model = new Model();
-        Reader reader = new Reader();
+        //Reader reader = new Reader();
         Menu menu = new Menu();
 
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
-        menu.mainMenuPanel();
+        //menu.mainMenuPanel();
+        TestModel();
         
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
@@ -86,6 +87,28 @@ public class App {
         System.out.println(outlist.get(0).get(0) + " - " + outlist.get(1).get(0));
         System.out.println(outlist.get(0).get(1) + " - " + outlist.get(1).get(1));
 
+    }
+    
+    public static void TestModel(){
+    	Task task1 = new Task("testowy", 10);
+    	Task task2 = new Task("testowy2", 20);
+    	
+    	Task task3 = new Task("testowy3",30);
+    	Task task4 = new Task("testowy4", 40);
+    	
+    	Project projectTest1 = new Project("ProjektA");
+    	Project projektTest2 = new Project("ProjektB");
+    	//dodanie zada� do projektu
+    	
+    	
+    	projectTest1.addTaskToProjectList(task1);
+    	projectTest1.addTaskToProjectList(task2);
+    	
+    	projektTest2.addTaskToProjectList(task3);
+    	projektTest2.addTaskToProjectList(task4);
+    	
+    	
+    	
     }
 
 
