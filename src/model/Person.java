@@ -1,21 +1,9 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
-
-    private String Name;
-
-    private String Surname;
-    private List<Project> projectList;
-
-    public String getName() {
-        return Name;
-    }
-
-    public String getSurname() {
-        return Surname;
-    }
 
     public List<Project> getProjectList() {
         return projectList;
@@ -25,16 +13,36 @@ public class Person {
         this.projectList = projectList;
     }
 
+    private List<Project> projectList;
+
+    String name;
+    String surname;
+
+    public Person(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+        projectList = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
     @Override
     public String toString() {
-        return Name + " " + Surname;
+        return name + " " + surname;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        surname = surname;
     }
+
 }
