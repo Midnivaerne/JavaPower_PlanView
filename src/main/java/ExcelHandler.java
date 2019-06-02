@@ -54,7 +54,7 @@ public class ExcelHandler {
             if (personNumber != -1) {
                 System.out.println("Person found");
             } else {
-                System.out.println("Person not found");
+                //System.out.println("Person not found");
                 //if nie istnieje > dodac; list.add()
                 model.getPersonList().add(person);
                 personNumber = model.getPersonList().indexOf(person);
@@ -89,7 +89,7 @@ public class ExcelHandler {
             if (projectNumber != -1) {
                 System.out.println("Project found");
             } else {
-                System.out.println("Project not found");
+                //System.out.println("Project not found");
                 //if nie istnieje > dodac; list.add()
                 model.getPersonList().get(personNumber).getProjectList().add(project);
                 projectNumber = model.getPersonList().get(personNumber).getProjectList().indexOf(project);
@@ -117,7 +117,7 @@ public class ExcelHandler {
                         Cell cell = row.getCell(k);
                         if (cell == null) {
                             // komórka pusta; nie można pobrać wartości; nie zapisuj do modelu
-                            System.out.println("Pusta komórka!");
+                            //System.out.println("Pusta komórka!");
                         }
                         else {  // cell-ka OK
                             CellType cellType = cell.getCellType();
@@ -174,7 +174,7 @@ public class ExcelHandler {
                         if (taskNumber != -1) {
                             System.out.println("Task found");
                         } else {
-                            System.out.println("Task not found");
+                            //System.out.println("Task not found");
                             //if nie istnieje > dodac; list.add()
                             model.getPersonList().get(personNumber).getProjectList().get(projectNumber).getTaskList().add(task);
                             taskNumber = model.getPersonList().get(personNumber).getProjectList().get(projectNumber).getTaskList().indexOf(task);
