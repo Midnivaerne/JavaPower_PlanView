@@ -1,7 +1,9 @@
+import jdk.jfr.events.ExceptionThrownEvent;
 import model.Model;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.security.cert.Extension;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -19,20 +21,36 @@ public class App {
 
     public static void main(String[] args) {
 
-        List<Path> xlsFilePaths;
-        List<List<String>> rawData; //surowe dane do tworzenia raportów
-        Model model = new Model();
-//        Reader reader = new Reader();
         Menu menu = new Menu();
-
-        report1Test();
 
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        menu.mainMenuPanel();
+        //menu.mainMenuPanel();
+
+        Report1 r1 = new Report1("2000");
+
+        Reader reader = new Reader();
+        Model model = new Model();
+
+        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012\\01")) ){
+            ExcelHandler excelHandler = new ExcelHandler(model);
+            excelHandler.read(singleXlsFile );
+            r1.setDataModel(model);
+        }
+        r1.generate();
+        List<List<String>> outlist = r1.getOutputList();
+
+        Printer printer;
+        printer = new ConsolePrint(outlist);
+        try{
+            printer.print();
+
+        } catch (Exception e) {
+            System.out.println("Wyjatek" + e);
+        }
 
 
         /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
@@ -52,23 +70,6 @@ public class App {
 
     public static void report1Test() {
 
-        Report1 r1 = new Report1("2000");
-
-        Reader reader = new Reader();
-
-        Model model = new Model();
-        ExcelHandler excelHandler = new ExcelHandler(model);
-        File file = new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012\\01\\Kot_Tomasz.xls");
-
-        excelHandler.read(file);
-
-        r1.setDataModel(model);
-        r1.generate();
-        List<List<String>> outlist = r1.getOutputList();
-
-        Printer printer;
-        printer = new ConsolePrint(outlist);
-        printer.print();
 
     }
 }
