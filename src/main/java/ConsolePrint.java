@@ -9,11 +9,21 @@ public class ConsolePrint implements Printer {
     private List<Integer> columnSizes = new LinkedList<>();
     private List<List<String>> localTable;
     private List<String> singleRow = new ArrayList<>();
+    private Report report;
 
     @Override
     public void print(){
         getMaximumColumnSize();
 //        System.out.println("Max column size" + columnSizes);
+        for (int singleColumnLength : columnSizes) {
+            printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
+        }
+        System.out.println("");
+        for(String singleCell : report.getColumnHeader()){
+            System.out.print("| " + singleCell + " ");
+        }
+        System.out.println("");
+
         for (int singleColumnLength : columnSizes) {
             printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
         }
@@ -35,16 +45,18 @@ public class ConsolePrint implements Printer {
 
     };
 
-    public ConsolePrint(List<List<String>> inputTable) {
+    public ConsolePrint(List<List<String>> inputTable, Report argReport) {
         super();
         localTable = inputTable;
         columnCounter = inputTable.size();
+        report = argReport;
 //        columntCounter = inputTable;
     }
 
     private void getMaximumColumnSize() {
         int maxValue = 0;
         int column = 1;
+        int counter = 0;
         for (List<String> singleRow : localTable) {
             for (String singleElement : singleRow ) {
                 if(singleElement.length() > maxValue) {
@@ -52,6 +64,12 @@ public class ConsolePrint implements Printer {
                 }
             }
             columnSizes.add(maxValue);
+            System.out.println(columnSizes.size());
+            for(int i = 0; i < columnSizes.size(); i++) {
+                if(columnSizes.get(i) < report.getColumnHeader().get(i).length()) {
+                    columnSizes.add(i, report.getColumnHeader().get(i).length());
+                }
+            }
             maxValue = 0;
             column++;
         }

@@ -72,7 +72,7 @@ public class App {
 
             switch (menu.getOutputType()){
                 case("K"):
-                    ConsolePrint consolePrint = new ConsolePrint(outlist);
+                    ConsolePrint consolePrint = new ConsolePrint(outlist, report);
                     try{
                         consolePrint.print();
 
@@ -82,7 +82,7 @@ public class App {
                     break;
 
                 case("E"):
-                    ExcelPrint excelPrint = new ExcelPrint(outlist,menu.getPath(),menu.getReportType());
+                    ExcelPrint excelPrint = new ExcelPrint(outlist,menu.getPath(),report.getReportHeader(), report.getColumnHeader());
                     try{
                         excelPrint.print();
 
