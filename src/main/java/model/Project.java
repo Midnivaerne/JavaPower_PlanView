@@ -13,6 +13,14 @@ public class Project {
     	taskList = new ArrayList<Task>();
     }
 
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public List<Task> getTaskList() {
         return taskList;
     }

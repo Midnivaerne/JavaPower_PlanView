@@ -34,7 +34,7 @@ public class Report3 extends Report {
                 for (Project project: person.getProjectList()){
                     for (Task task: project.getTaskList()){
                         if(!dictionary.containsKey(task.getDate().getMonth())){
-                            dictionary.put(Integer.valueOf(task.getDate().getMonth()), new TreeMap<>());
+                            dictionary.put(Integer.valueOf(task.getDate().getMonth()), new TreeMap<String, Double>());
                         }
                         if (!dictionary.get(Integer.valueOf(task.getDate().getMonth())).containsKey(project.getName())){
                             dictionary.get(Integer.valueOf((task.getDate().getMonth()))).put(project.getName(),0.0);

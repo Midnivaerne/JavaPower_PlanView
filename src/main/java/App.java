@@ -30,7 +30,7 @@ public class App {
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        //menu.mainMenuPanel();
+        menu.mainMenuPanel();
 
         Report1 r1 = new Report1("2000");
 
