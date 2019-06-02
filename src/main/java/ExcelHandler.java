@@ -99,6 +99,7 @@ public class ExcelHandler {
             int j = 0;
             int emptRowCounter = 0;
             boolean booleanEmptyCell = false;
+            boolean booleanValueCellMismatch = false;
             while(emptRowCounter < 5) {
                 //Pobranie wiersza z danego arkusza
                 Row row = sheet.getRow(++j);
@@ -126,13 +127,22 @@ public class ExcelHandler {
                                     booleanEmptyCell = true;
                                     break;
                                 case STRING: // wartość tekstowa
+                                    if(k != 1) {
+                                        booleanValueCellMismatch = true;
+                                    }
                                     taskValue = cell.getStringCellValue();
                                     break;
                                 case NUMERIC: // wartość numeryczna (zmienno przecinkowa)
                                     if (DateUtil.isCellDateFormatted(cell)) {
+                                        if(k != 0) {
+                                            booleanValueCellMismatch = true;
+                                        }
                                         dateValue = cell.getDateCellValue();
                                         //miesiac wez z daty
                                     } else {
+                                        if(k != 2) {
+                                            booleanValueCellMismatch = true;
+                                        }
                                         //System.out.println("Błędny zapis daty!");
                                         timeValue = cell.getNumericCellValue();
                                     }
@@ -154,7 +164,8 @@ public class ExcelHandler {
                     //  task.setHoursCount();
                     //list.add()
 
-                    if(!booleanEmptyCell) {
+                    //jezeli komorka nie pusta i poprawne dane: tworzy nowy Task
+                    if(!booleanEmptyCell && !booleanValueCellMismatch) {
                         Task task = new Task(dateValue, taskValue, timeValue);
 
                         //check if istnieje w modelu
@@ -169,8 +180,9 @@ public class ExcelHandler {
                             taskNumber = model.getPersonList().get(personNumber).getProjectList().get(projectNumber).getTaskList().indexOf(task);
                         }
                     }
-                    else {
+                    else {  // if pusta_komorka|bledne_dane: czyszczenie flag przed parsowaniem kolejnego rekordu
                         booleanEmptyCell = false;
+                        booleanValueCellMismatch = false;
                     }
 
                     //System.out.println("dateValue:" + dateValue + ", taskValue: " + taskValue + ", timeValue: " + timeValue);
