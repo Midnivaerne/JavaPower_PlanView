@@ -4,6 +4,8 @@ import model.Model;
 import java.io.File;
 import java.nio.file.Path;
 import java.security.cert.Extension;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -69,7 +71,18 @@ public class App {
     }
 
     public static void report1Test() {
+        Report3 r1 = new Report3("Adaś", "Miałczyński","2000");
+        Model m = new Model();
+        Person p1 = new Person("Jerzy","Zwierz");
+        Person p2 = new Person("Adaś", "Miałczyński");
+        Project pr1 = new Project("NewProject");
+        Task t1 = new Task(Date.valueOf(LocalDate.now()),"NewTask1",20);
+        Task t2 = new Task(Date.valueOf(LocalDate.now()),"NewTask2",100);
 
 
     }
+
+
+
+
 }

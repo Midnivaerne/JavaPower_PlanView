@@ -40,7 +40,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return name + " " + surname;
+        return surname + ", " + name;
     }
 
     public void setName(String name) {

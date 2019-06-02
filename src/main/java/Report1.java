@@ -2,12 +2,10 @@ import model.Person;
 import model.Project;
 import model.Task;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Year;
+import java.util.*;
 
 public class Report1 extends Report {
-
-    private String Year;
 
     public Report1(String Year){
         this.Year = Year;
@@ -16,23 +14,25 @@ public class Report1 extends Report {
     @Override
     public void generate() {
 
-        List<String> persons = new ArrayList<String>();
-        List<String> hours = new ArrayList<String>();
+        reportHeader = "Raport 1 z roku "+ Year;
 
+        columnHeader.add(0,"Nazwisko i imię");
+        columnHeader.add(1, "Przepracowane godziny");
 
+        Map<String, String> dictionary = new TreeMap<String, String>();
 
         for (Person person : this.getDataModel().getPersonList()) {
-            int currentPersonHours = 0;
-            persons.add(person.toString());
+            double currentPersonHours = 0;
             for (Project project : person.getProjectList()) {
                 for (Task task : project.getTaskList()) {
                     currentPersonHours += task.getHoursCount();
                 }
             }
-            hours.add(String.valueOf(currentPersonHours));
+            dictionary.put(person.toString(),String.valueOf(currentPersonHours));
         }
-        this.outputList.add(persons);
-        this.outputList.add(hours);
+
+        this.outputList.add(new ArrayList<>(dictionary.keySet()));
+        this.outputList.add(new ArrayList<>(dictionary.values()));
 
     }
 
