@@ -49,5 +49,5 @@ Użytkownik na każdym kroku działania programu ma możliwość powrotu do menu
 Aby zakończyć użytkowanie aplikacji wciśnij klawisz „q”.
 
 
-********Instrukcja tworzenia pliku JAR dla IntelliJ********
+******** Instrukcja tworzenia pliku JAR dla IntelliJ ********
 File -> new -> project -> maven -> create a package

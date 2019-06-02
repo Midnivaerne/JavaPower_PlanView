@@ -1,4 +1,4 @@
-import jdk.jfr.events.ExceptionThrownEvent;
+//import jdk.jfr.events.ExceptionThrownEvent;
 import model.Model;
 
 import java.io.File;
@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.security.cert.Extension;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
+
+    private static List<File> listOfFiles = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -38,9 +41,9 @@ public class App {
 
             menu.mainMenuPanel();
 
-            reader.getExcels(new File(String.valueOf(menu.getPath())));
+            reader.getExcels(new File(String.valueOf(menu.getPath())), String.valueOf(menu.getYear()));
 
-            List<File> listOfFiles = reader.getResult();
+        listOfFiles = reader.getResult();
 
             Report report = null;
             switch (menu.getReportType()){
@@ -101,5 +104,9 @@ public class App {
             }
         }
 
+    }
+
+    public static List<File> getListOfFiles() {
+        return listOfFiles;
     }
 }

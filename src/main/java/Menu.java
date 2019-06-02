@@ -153,6 +153,13 @@ public class Menu {
                 System.out.println("Podaj nazwisko pracownika ");
                 lastName = scanner.nextLine();
 
+
+                if(!checkPersonExistence(firstName, lastName))
+                {
+                    System.out.println("Nie znaleziono pracownika o podanych danych");
+                    reportTypePanel();
+                }
+
                 this.name = firstName;
                 this.surnameName = lastName;
 
@@ -176,6 +183,13 @@ public class Menu {
 
                 this.name = firstName;
                 this.surnameName = lastName;
+
+                if(!checkPersonExistence(name, surnameName))
+                {
+                    System.out.println("Nie znaleziono pracownika o podanych danych");
+                    reportTypePanel();
+                }
+
 
                 System.out.println("Podaj rok: ");
 
@@ -250,5 +264,20 @@ public class Menu {
     public void setSurnameName(String surnameName) {
         this.surnameName = surnameName;
     }
+
+    private boolean checkPersonExistence (String name, String surname){
+        int occurenceCounter = 0;
+        for (File file: App.getListOfFiles()) {
+            if(file.getName().toLowerCase().contains(name.toLowerCase()) && file.getName().toLowerCase().contains(surname.toLowerCase())) {
+                occurenceCounter++;
+            }
+        }
+        if(occurenceCounter == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
+
 
