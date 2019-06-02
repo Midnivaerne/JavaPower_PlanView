@@ -15,8 +15,8 @@ Na konsoli pojawia się informacja: Witamy w systemie generowania raportów
 
 
 Wczytywanie danych
-1.	W celu wczytania danych podaj ścieżkę do danych wejściowych.
-	Na konsoli pojawia się informacja: „Podaj ścieżkę do danych wejściowych:”
+1.W celu wczytania danych podaj ścieżkę do danych wejściowych.
+Na konsoli pojawia się informacja: „Podaj ścieżkę do danych wejściowych:”
   
   
 Generowanie raportów
@@ -47,3 +47,7 @@ Dla błędniej wprowadzonej litery pojawi się komunikat: „!!! Nie ma takiego 
 
 Użytkownik na każdym kroku działania programu ma możliwość powrotu do menu głównego klikając klawisz „m”. 
 Aby zakończyć użytkowanie aplikacji wciśnij klawisz „q”.
+
+
+********Instrukcja tworzenia pliku JAR dla IntelliJ********
+File -> new -> project -> maven -> create a package
