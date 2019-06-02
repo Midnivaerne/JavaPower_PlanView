@@ -56,8 +56,8 @@ public class App {
         Person p2 = new Person();
         Person p3 = new Person();
         Project pr1 = new Project();
-        Task t1 = new Task();
-        Task t2 = new Task();
+        //Task t1 = new Task();
+        //Task t2 = new Task();
 
 
         ArrayList<Person> plist = new ArrayList<Person>();
@@ -94,6 +94,28 @@ public class App {
         Printer printer;
         printer = new ConsolePrint(outlist);
         printer.print();
+    }
+    
+    public static void TestModel(){
+    	Task task1 = new Task("testowy", 10);
+    	Task task2 = new Task("testowy2", 20);
+    	
+    	Task task3 = new Task("testowy3",30);
+    	Task task4 = new Task("testowy4", 40);
+    	
+    	Project projectTest1 = new Project("ProjektA");
+    	Project projektTest2 = new Project("ProjektB");
+    	//dodanie zada� do projektu
+    	
+    	
+    	projectTest1.addTaskToProjectList(task1);
+    	projectTest1.addTaskToProjectList(task2);
+    	
+    	projektTest2.addTaskToProjectList(task3);
+    	projektTest2.addTaskToProjectList(task4);
+    	
+    	
+    	
     }
 
 

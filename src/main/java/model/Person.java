@@ -15,15 +15,20 @@ public class Person {
 
     private List<Project> projectList;
 
-    String name;
-    String surname;
+    private String name;
+    private String surname;
 
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
         projectList = new ArrayList<>();
-    }
 
+    public Person(){
+    	this.name = new String();
+    	this.surname = new String();
+    	projectList = new ArrayList<>();
+    }
+    
     public String getName() {
         return name;
     }
@@ -43,6 +48,8 @@ public class Person {
 
     public void setSurname(String surname) {
         surname = surname;
+    }
+
     }
 
 }
