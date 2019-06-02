@@ -13,6 +13,7 @@ public class ConsolePrint implements Printer {
     @Override
     public void print(){
         getMaximumColumnSize();
+//        System.out.println("Max column size" + columnSizes);
         for (int singleColumnLength : columnSizes) {
             printSignMultipleTimes( (singleColumnLength + (columnCounter*2)), "-");
         }
@@ -57,6 +58,7 @@ public class ConsolePrint implements Printer {
     }
 
     private void printSignMultipleTimes(int lineLength, String sign){
+
         for(int i = 0; i<lineLength;i++) {
             System.out.print(sign);
         }

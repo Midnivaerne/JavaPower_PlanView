@@ -63,7 +63,7 @@ public class Menu {
 
     public void mainMenuPanel() {
 
-        System.out.println("-------Witaj w systemie generowania raportów-------");
+        System.out.println("\n\n\n-------Witaj w systemie generowania raportów-------");
         System.out.println();
         System.out.println("(A) Podaj ścieżkę do danych wejściowych. path = ");
         System.out.println("*** Jeśli chcesz wyjśc z aplikacji wpisz \"q\" ***");
@@ -115,7 +115,8 @@ public class Menu {
     }
 
     public void dataPanel(int type) {
-
+        String lastName;
+        String firstName;
         System.out.println("----------------------------------------------------");
         System.out.println("(C) Podaj dane potrzebne do raportu:");
 
@@ -144,12 +145,13 @@ public class Menu {
                     dataPanel(type);
                 }
                 break;
+
             case 3:
                 System.out.println("Podaj imie pracownika: ");
-                String firstName = scanner.nextLine();
+                firstName = scanner.nextLine();
 
                 System.out.println("Podaj nazwisko pracownika ");
-                String lastName = scanner.nextLine();
+                lastName = scanner.nextLine();
 
 
                 if(!checkPersonExistence(firstName, lastName))
@@ -170,29 +172,17 @@ public class Menu {
                     System.out.println("!!! Podany rok ma zły format !!!");
                     dataPanel(type);
                 }
-
                 break;
+
             case 4:
-                System.out.println("!!! Raport niedostępny, wybierz inny !!!");
-                reportTypePanel();
+                System.out.println("Podaj imie pracownika: ");
+                firstName = scanner.nextLine();
 
-                System.out.println("Podaj imie pracownika");
-                try {
-                    this.name = scanner.nextLine();
-                    outputTypePanel();
-                } catch (Exception error) {
-                    System.out.println("!!! Podane imię ma zły format !!!");
-                    dataPanel(type);
-                }
+                System.out.println("Podaj nazwisko pracownika ");
+                lastName = scanner.nextLine();
 
-                System.out.println("Podaj nazwisko pracownika");
-                try {
-                    this.surnameName = scanner.nextLine();
-                    outputTypePanel();
-                } catch (Exception error) {
-                    System.out.println("!!! Podane nazwisko ma zły format !!!");
-                    dataPanel(type);
-                }
+                this.name = firstName;
+                this.surnameName = lastName;
 
                 if(!checkPersonExistence(name, surnameName))
                 {
@@ -200,7 +190,6 @@ public class Menu {
                     reportTypePanel();
                 }
 
-              this.name = name+"_"+surnameName;
 
                 System.out.println("Podaj rok: ");
 
@@ -212,6 +201,7 @@ public class Menu {
                     dataPanel(type);
                 }
                 break;
+
             case 5:
                 System.out.println("!!! Raport niedostępny, wybierz inny !!!");
                 reportTypePanel();

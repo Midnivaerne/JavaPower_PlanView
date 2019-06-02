@@ -28,71 +28,82 @@ public class App {
     public static void main(String[] args) {
 
         Menu menu = new Menu();
+        Reader reader = new Reader();
+        Model model = new Model();
+
 
         /*todo: wywołanie fukncji odpowiedzialnej za menu uzytkownika
                 obiekt menu zawiera informacje o roku, imieniu, nazwisku i rodzaju raportu
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        menu.mainMenuPanel();
+        while(true){
 
-        Reader reader = new Reader();
-        Model model = new Model();
+            menu.mainMenuPanel();
 
-        reader.getExcels(new File(String.valueOf(menu.getPath())), String.valueOf(menu.getYear()));
+            reader.getExcels(new File(String.valueOf(menu.getPath())), String.valueOf(menu.getYear()));
 
         listOfFiles = reader.getResult();
 
-        Report report = null;
-        switch (menu.getReportType()){
-            case(1):
-                report = new Report1(Integer.toString(menu.getYear()));
-                break;
+            Report report = null;
+            switch (menu.getReportType()){
+                case(1):
+                    report = new Report1(Integer.toString(menu.getYear()));
+                    break;
 
-            case(2):
-                report = new Report2(Integer.toString(menu.getYear()));
-                break;
+                case(2):
+                    report = new Report2(Integer.toString(menu.getYear()));
+                    break;
 
-            case(3):
-                report = new Report3(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
-                break;
+                case(3):
+                    report = new Report3(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
+                    break;
 
-            case(4):
-                report = new Report4(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
-                break;
+                case(4):
+                    report = new Report4(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
+                    break;
+            }
+
+            for(File singleXlsFile : listOfFiles){
+                ExcelHandler excelHandler = new ExcelHandler(model);
+                excelHandler.read(singleXlsFile );
+                report.setDataModel(model);
+            }
+
+            report.generate();
+            List<List<String>> outlist = report.getOutputList();
+
+            switch (menu.getOutputType()){
+                case("K"):
+                    ConsolePrint consolePrint = new ConsolePrint(outlist);
+                    try{
+                        consolePrint.print();
+
+                    } catch (Exception e) {
+                        System.out.println("Wyjatek" + e);
+                    }
+                    break;
+
+                case("E"):
+                    ExcelPrint excelPrint = new ExcelPrint(outlist,menu.getPath(),menu.getReportType());
+                    try{
+                        excelPrint.print();
+
+                    } catch (Exception e) {
+                        System.out.println("Wyjatek" + e);
+                    }
+                    break;
+//
+//            case("P"):
+//                printer = new PDFPrinter(outlist);
+//                break;
+//
+//            case("W"):
+//                printer = new ExcelPrintChart(outlist);
+//                break;
+            }
         }
 
-        for(File singleXlsFile : listOfFiles){
-            ExcelHandler excelHandler = new ExcelHandler(model);
-            excelHandler.read(singleXlsFile );
-            report.setDataModel(model);
-        }
-        report.generate();
-        List<List<String>> outlist = report.getOutputList();
-
-        Printer printer;
-        printer = new ConsolePrint(outlist);
-        try{
-            printer.print();
-
-        } catch (Exception e) {
-            System.out.println("Wyjatek" + e);
-        }
-
-
-        /*todo: file scanner zbiera i zapisuje do listy sciezki do plikow xls -> zapisuje je do xlsFilePath
-         */
-
-        //todo: for each dla xlsFilePath, w kazdej petli wywolujemy Reader (który za posrednictwem excellHandlera odczyta plik)
-        //      Reader przyjmuje jako argumenty sciezke do pliku xls, oraz utworzony model
-        //      Po wczytaniu i przetworzeniu danych z excellHandlera dodaje je do otrzymanego modelu,
-        //      Na koncu zwracany jest model z wstrzykniętymi nowymi danymi
-
-        //todo: tworzymy obiekt raport (switch case na bazie menu.getRaport()), jako konstruktor raportu podajemy model
-        //      Raport zwraca Listę list List<List<String>> generatedTable
-
-        //todo: Wywolanie obiektu metody print(generatedTable) z obiektu Printer,
-        //
     }
 
     public static List<File> getListOfFiles() {
