@@ -15,8 +15,8 @@ Na konsoli pojawia się informacja: Witamy w systemie generowania raportów
 
 
 Wczytywanie danych
-1.W celu wczytania danych podaj ścieżkę do danych wejściowych.
-Na konsoli pojawia się informacja: „Podaj ścieżkę do danych wejściowych:”
+	W celu wczytania danych podaj ścieżkę do danych wejściowych. Na konsoli pojawia się informacja: 
+	„Podaj ścieżkę do danych wejściowych:”
   
   
 Generowanie raportów
@@ -24,8 +24,8 @@ Generowanie raportów
 	1. Raport roczny wg wszystkich pracowników
 	2. Raport roczny wg projektów
 	3. Raport roczny pracownika
-	4. Raport roczny pracownika procentowy wg projektu
-	5. Raport roczny ujmujący top 10 zadań 
+	4. Raport roczny pracownika wg projektu [%]
+	5. Raport roczny ujmujący top 10 zadań wykonanych przez pracowników [%]
   
 Wybierz rodzaj raportu - w tym celu wprowadź cyfrę odpowiadającą rodzajowi raportu, który chcemy wygenerować.
 

@@ -15,15 +15,17 @@ public class ExcelPrint implements Printer {
     private List<Integer> columnSizes = new LinkedList<>();
     private List<List<String>> localTable;
     private File path;
-    private int reportType;
+    private String excelName;
+    private List<String> header;
 
 
-    public ExcelPrint(List<List<String>> inputTable, File path, int reportType) {
+    public ExcelPrint(List<List<String>> inputTable, File path, String excelName, List<String> header) {
         super();
         localTable = inputTable;
         columnCounter = inputTable.size();
         this.path = path;
-        this.reportType = reportType;
+        this.excelName = excelName;
+        this.header = header;
 
     }
 
@@ -31,13 +33,21 @@ public class ExcelPrint implements Printer {
     public void print() throws IOException{
         Workbook wb = new XSSFWorkbook();
         String pathToReport = path.getAbsolutePath();
-        FileOutputStream fos = new FileOutputStream(pathToReport+"\\report"+reportType+".xlsx");
+        FileOutputStream fos = new FileOutputStream(pathToReport+"\\"+header +".xlsx");
 
-        Sheet sh = wb.createSheet("report"+reportType);
+        Sheet sh = wb.createSheet(excelName);
+
+        sh.createRow(0);
+        int headerLength = header.size();
+        int i = 0;
+        for (String head : header){
+            sh.getRow(0).createCell(i).setCellValue(head);
+            i++;
+        }
 
         rowCounter = localTable.get(0).size();
-        for(int i = 0; i < rowCounter; i++) {
-            sh.createRow(i);
+        for(i = 0; i < rowCounter; i++) {
+            sh.createRow(i+1);
             for(int j = 0; j < columnCounter; j++) {
                 sh.getRow(i).createCell(j).setCellValue(localTable.get(j).get(i));
 
