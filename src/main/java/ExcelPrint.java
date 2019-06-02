@@ -33,7 +33,7 @@ public class ExcelPrint implements Printer {
     public void print() throws IOException{
         Workbook wb = new XSSFWorkbook();
         String pathToReport = path.getAbsolutePath();
-        FileOutputStream fos = new FileOutputStream(pathToReport+header +".xlsx");
+        FileOutputStream fos = new FileOutputStream(pathToReport+"\\"+header +".xlsx");
 
         Sheet sh = wb.createSheet(excelName);
 
