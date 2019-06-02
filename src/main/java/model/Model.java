@@ -8,7 +8,7 @@ public class Model {
 	private List<Person> personList;
 	
 	public Model(){
-		personList = new LinkedList<>();
+		personList = new ArrayList<>();
 	}
 	
     public List<Person> getPersonList() {
@@ -19,9 +19,4 @@ public class Model {
         this.personList = personList;
     }
 
-    private List<Person> personList;
-
-    public Model() {
-        personList = new ArrayList<>();
-    }
 }

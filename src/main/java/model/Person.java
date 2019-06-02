@@ -22,13 +22,14 @@ public class Person {
         this.name = name;
         this.surname = surname;
         projectList = new ArrayList<>();
+    }
 
     public Person(){
     	this.name = new String();
     	this.surname = new String();
     	projectList = new ArrayList<>();
     }
-    
+
     public String getName() {
         return name;
     }
@@ -49,7 +50,6 @@ public class Person {
     public void setSurname(String surname) {
         surname = surname;
     }
-
-    }
-
 }
+
+
