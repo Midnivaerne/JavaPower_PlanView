@@ -23,16 +23,16 @@ public class Reader {
 		
 		for (File file : listOfFilesWithExt ) {
 			result.add(file);
-			System.out.println(file.getName());
+//			System.out.println(file.getName());
 		}
 		
 		for (File file : listOfFiles) {
 			if (file.isDirectory()) {
-				System.out.println(file);
+//				System.out.println(file);
 				this.getExcels(file);
 			}
 		}
-		
+		System.out.println(result);
 		return result;
 
 		}

@@ -30,14 +30,17 @@ public class App {
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-        menu.mainMenuPanel();
+//        menu.mainMenuPanel();
 
         Report1 r1 = new Report1("2000");
 
         Reader reader = new Reader();
         Model model = new Model();
 
-        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012\\01")) ){
+
+
+        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012")) ){
+//            System.out.println(singleXlsFile);
             ExcelHandler excelHandler = new ExcelHandler(model);
             excelHandler.read(singleXlsFile );
             r1.setDataModel(model);
