@@ -1,6 +1,6 @@
 package pl.edu.agh.mwo.invoice.product;
 
-import org.hamcrest.Matchers;
+//import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 
