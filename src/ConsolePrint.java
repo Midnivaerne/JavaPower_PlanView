@@ -1,21 +1,21 @@
 import java.util.List;
 
-public class ConsolePrint  {
+public class ConsolePrint extends Printer {
 
-  //  @Override
-   // public void print(){};
+    @Override
+    public void print(){};
 
     private int rowCounter;
     private int columntCounter;
     private List<Integer> columnSizes;
     private List<List<String>> localTable;
 
-//    public ConsolePrint(List<List<String>> inputTable) {
-//        super();
-//        localTable = inputTable;
-//        rowCounter = inputTable.size();
-//        columntCounter = inputTable;
-//    }
+    public ConsolePrint(List<List<String>> inputTable) {
+        super();
+        localTable = inputTable;
+        rowCounter = inputTable.size();
+        List<List<String>> columntCounter = inputTable;
+    }
 
     private void getMaximumColumnSize() {
         int maxValue = 0;
