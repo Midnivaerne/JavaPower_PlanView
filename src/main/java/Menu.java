@@ -151,6 +151,13 @@ public class Menu {
                 System.out.println("Podaj nazwisko pracownika ");
                 String lastName = scanner.nextLine();
 
+
+                if(!checkPersonExistence(firstName, lastName))
+                {
+                    System.out.println("Nie znaleziono pracownika o podanych danych");
+                    reportTypePanel();
+                }
+
                 this.name = firstName;
                 this.surnameName = lastName;
 
@@ -185,6 +192,12 @@ public class Menu {
                 } catch (Exception error) {
                     System.out.println("!!! Podane nazwisko ma zły format !!!");
                     dataPanel(type);
+                }
+
+                if(!checkPersonExistence(name, surnameName))
+                {
+                    System.out.println("Nie znaleziono pracownika o podanych danych");
+                    reportTypePanel();
                 }
 
               this.name = name+"_"+surnameName;
@@ -261,5 +274,20 @@ public class Menu {
     public void setSurnameName(String surnameName) {
         this.surnameName = surnameName;
     }
+
+    private boolean checkPersonExistence (String name, String surname){
+        int occurenceCounter = 0;
+        for (File file: App.getListOfFiles()) {
+            if(file.getName().toLowerCase().contains(name.toLowerCase()) && file.getName().toLowerCase().contains(surname.toLowerCase())) {
+                occurenceCounter++;
+            }
+        }
+        if(occurenceCounter == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
+
 

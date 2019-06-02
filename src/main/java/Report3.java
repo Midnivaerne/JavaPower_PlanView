@@ -54,7 +54,7 @@ public class Report3 extends Report {
 
         for (Integer month: dictionary.keySet()) {
             for (String projectName: dictionary.get(month).keySet()){
-                monthList.add(String.valueOf(month));
+                monthList.add(monthToString(month));
                 projectList.add(projectName);
                 hoursList.add(String.valueOf(dictionary.get(month).get(projectName)));
 
@@ -66,5 +66,9 @@ public class Report3 extends Report {
         outputList.add(hoursList);
     }
 
+    private String monthToString (Integer monthInt){
+        List<String> months = new ArrayList<>(Arrays.asList("Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"));
+        return months.get(monthInt);
+    }
 
 }

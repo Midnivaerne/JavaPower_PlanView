@@ -22,20 +22,24 @@ public class Reader {
       };
 	}
 	
-	public List<File> getExcels(File dataFolder){
+	public List<File> getExcels(File dataFolder, String Year){
 
 		File[] listOfFilesWithExt = dataFolder.listFiles(filter);
 		File[] listOfFiles = dataFolder.listFiles();
 		
 		for (File file : listOfFilesWithExt ) {
-			result.add(file);
+			if(file.getPath().contains(Year)) {
+				result.add(file);
+			}
 //			System.out.println(file.getName());
 		}
-		
+
 		for (File file : listOfFiles) {
-			if (file.isDirectory()) {
+			if(file.getPath().contains(Year)) {
+				if (file.isDirectory()) {
 //				System.out.println(file);
-				this.getExcels(file);
+					this.getExcels(file, Year);
+				}
 			}
 		}
 		return result;
