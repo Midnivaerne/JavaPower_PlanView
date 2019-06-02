@@ -7,6 +7,13 @@ public class Reader {
 	
 	FilenameFilter filter;
 
+	public List<File> getResult() {
+		return result;
+	}
+
+	List<File> result = new ArrayList<>();
+
+
 	public Reader() {
 	filter = new FilenameFilter() {
         public boolean accept(File directory, String fileName) {
@@ -16,7 +23,6 @@ public class Reader {
 	}
 	
 	public List<File> getExcels(File dataFolder){
-		List<File> result = new ArrayList<>();
 
 		File[] listOfFilesWithExt = dataFolder.listFiles(filter);
 		File[] listOfFiles = dataFolder.listFiles();
@@ -32,8 +38,28 @@ public class Reader {
 				this.getExcels(file);
 			}
 		}
-		System.out.println(result);
 		return result;
 
 		}
+
+	public static <T> ArrayList<T> removeDuplicates(ArrayList<T> list)
+	{
+
+		// Create a new ArrayList
+		ArrayList<T> newList = new ArrayList<T>();
+
+		// Traverse through the first list
+		for (T element : list) {
+
+			// If this element is not present in newList
+			// then add it
+			if (!newList.contains(element)) {
+
+				newList.add(element);
+			}
+		}
+
+		// return the new list
+		return newList;
+	}
 }

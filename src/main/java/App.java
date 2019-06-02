@@ -2,6 +2,7 @@ import jdk.jfr.events.ExceptionThrownEvent;
 import model.Model;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.cert.Extension;
 import java.sql.Date;
@@ -38,8 +39,12 @@ public class App {
         Model model = new Model();
 
 
+        System.out.println("test");
 
-        for(File singleXlsFile : reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane\\2012")) ){
+        reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane"));
+        List<File> listOfFiles = reader.getResult();
+                System.out.println(listOfFiles);
+        for(File singleXlsFile : listOfFiles){
 //            System.out.println(singleXlsFile);
             ExcelHandler excelHandler = new ExcelHandler(model);
             excelHandler.read(singleXlsFile );
