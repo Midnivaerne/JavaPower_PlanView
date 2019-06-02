@@ -31,27 +31,41 @@ public class App {
                 powyzsze atrybuty dostepne sa za pomoca getterow z obiektu menu
         */
 
-//        menu.mainMenuPanel();
-
-        Report1 r1 = new Report1("2000");
+        menu.mainMenuPanel();
 
         Reader reader = new Reader();
         Model model = new Model();
 
+        reader.getExcels(new File(String.valueOf(menu.getPath())));
 
-        System.out.println("test");
-
-        reader.getExcels(new File("C:\\Users\\bartl\\Desktop\\mwo\\JavaPower_PlanView\\res\\reporter-dane"));
         List<File> listOfFiles = reader.getResult();
-                System.out.println(listOfFiles);
+
+        Report report = null;
+        switch (menu.getReportType()){
+            case(1):
+                report = new Report1(Integer.toString(menu.getYear()));
+                break;
+
+            case(2):
+                report = new Report2(Integer.toString(menu.getYear()));
+                break;
+
+            case(3):
+                report = new Report3(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
+                break;
+
+            case(4):
+                report = new Report4(menu.getName(), menu.getSurnameName(), Integer.toString(menu.getYear()));
+                break;
+        }
+
         for(File singleXlsFile : listOfFiles){
-//            System.out.println(singleXlsFile);
             ExcelHandler excelHandler = new ExcelHandler(model);
             excelHandler.read(singleXlsFile );
-            r1.setDataModel(model);
+            report.setDataModel(model);
         }
-        r1.generate();
-        List<List<String>> outlist = r1.getOutputList();
+        report.generate();
+        List<List<String>> outlist = report.getOutputList();
 
         Printer printer;
         printer = new ConsolePrint(outlist);
@@ -77,20 +91,4 @@ public class App {
         //todo: Wywolanie obiektu metody print(generatedTable) z obiektu Printer,
         //
     }
-
-    public static void report1Test() {
-        Report3 r1 = new Report3("Adaś", "Miałczyński","2000");
-        Model m = new Model();
-        Person p1 = new Person("Jerzy","Zwierz");
-        Person p2 = new Person("Adaś", "Miałczyński");
-        Project pr1 = new Project("NewProject");
-        Task t1 = new Task(Date.valueOf(LocalDate.now()),"NewTask1",20);
-        Task t2 = new Task(Date.valueOf(LocalDate.now()),"NewTask2",100);
-
-
-    }
-
-
-
-
 }
