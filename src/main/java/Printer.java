@@ -1,3 +1,7 @@
+import java.io.IOException;
+
 interface Printer {
-    public void print();
+    public void print() throws IOException;
+
+    ;
 }
